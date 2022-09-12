@@ -45,7 +45,7 @@ const HomePage = () => {
       <TouchWithUs />
       <Footer />
     </div>
-  );
+  );f
 };
 
 export default HomePage;

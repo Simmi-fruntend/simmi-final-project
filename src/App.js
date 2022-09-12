@@ -70,9 +70,9 @@ function App() {
     // e.preventDefault();
     const data = {
       //login name of the user
-      username: "imran",
+      username: "amitkumardubey",
       //login password of the user
-      password: "123",
+      password: "Amit@100",
     };
     let res = await axios.post(
       "http://127.0.0.1:8000/api/token/",

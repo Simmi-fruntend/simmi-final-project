@@ -348,7 +348,7 @@ const Header = (props) => {
                     <hr />
                   </li>
                   <li>
-                    <a href="#mission_vision">FAQ</a>
+                    <a href="/faqpage">FAQ</a>
                     <hr />
                   </li>
                 </ul>
