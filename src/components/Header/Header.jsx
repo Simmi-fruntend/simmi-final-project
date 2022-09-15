@@ -358,6 +358,9 @@ const Header = (props) => {
             )}
           </li>
           <li>
+          <Button className={classes.startFundraiser} onClick={startfundHandler}>Start Fundraiser</Button>
+          </li>
+          <li>
             <Link to="/contactus">Contact us</Link>
           </li>
 

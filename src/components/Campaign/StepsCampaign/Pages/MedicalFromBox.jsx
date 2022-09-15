@@ -24,7 +24,7 @@ const navigate = useNavigate();
     // data.append('name',)
     const ActualData = {
       
-    type: data.get('row-radio-buttons-group'),
+      category_tag: data.get('row-radio-buttons-group'),
       name: data.get('name'),
       email:data.get('email'),
       phone:data.get('phone'),

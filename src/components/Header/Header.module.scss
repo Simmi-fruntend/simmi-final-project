@@ -87,7 +87,7 @@
       background: #ffffff;
       color: #ff8c21;
     }
-  }
+  }.startFundraiser {    font-weight: 600;    font-size: 16.95px;    line-height: 21px;    text-align: center;    color: #ff8c21;    border: 2px solid #ff8c21;    border-radius: 10px;    margin-right: 8px;    padding: 7px;    &:hover {      background-color: #30363c;    }  }
   .profile_buttons {
     display: flex;
     // width: 228px;

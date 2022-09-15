@@ -45,7 +45,7 @@ const FormStep2 = () => {
   });
   const headers = { 
     'Content-Type':'multipart/form-data',
-    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NjYyNTExLCJpYXQiOjE2NTg2NTg5MTEsImp0aSI6IjllMzRlZjNkYjZlMzQzMmU5ZWM1NzY4NzJiOWRjNjU5IiwidXNlcl9pZCI6MX0.8D7px0c-5wMrI0YuJBKO8tCqy2J99gaAWEk9_tq5wsY' 
+    'Authorization': 'Bearer ' + localStorage.getItem('apitoken') 
   };
   const navigate = useNavigate();
 
