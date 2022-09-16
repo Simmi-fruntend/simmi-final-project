@@ -218,15 +218,15 @@ function App() {
         {
           localStorage.getItem("islogin") === 'true' && (<Route exact path="/login" element={<HomePage />} />)
         }
-        <Route path='step1' element={<Step1 />} />
-        <Route path='step1/step2' element={<Step2 />} />
-        <Route path='aboutus' element={<AboutUs />} />
+        <Route path='/step1' element={<Step1 />} />
+        <Route path='/step1/step2' element={<Step2 />} />
+        <Route path='/aboutus' element={<AboutUs />} />
 
-        <Route path='faqpage' element={<Faqpage1 />} />
-        <Route path='send-email-link' element={<SendEmailLink />} />
+        <Route path='/faqpage' element={<Faqpage1 />} />
+        <Route path='/send-email-link' element={<SendEmailLink />} />
         <Route exact path="/start-fund" element={<StartFund />} />
         <Route exact path="/individual-funds" element={<IndividualFunds />} />
-        <Route path="contactus" element={<Contactus />} />
+        <Route path="/contactus" element={<Contactus />} />
         <Route path='/changepassword' element={<Changepassword />} />
         {/* <Route path = '/startfunds' element={<StartFund/>} /> */}
 
