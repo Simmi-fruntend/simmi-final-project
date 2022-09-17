@@ -34,7 +34,6 @@ export default class Documents extends React.Component {
     document.getElementById("2").style.color = "white";
     document.getElementById("3").style.color = "black";
 
-
     document.getElementById("7").style.border = "10px solid #FF5F24";
     document.getElementById("6").style.border = "";
     document.getElementById("5").style.border = "";
@@ -52,7 +51,7 @@ export default class Documents extends React.Component {
   };
 
   onFileUpload = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // Create an object of formData
     const formData = new FormData();
     // Update the formData object
@@ -94,15 +93,15 @@ export default class Documents extends React.Component {
       {
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NjM3NDc1LCJpYXQiOjE2NTc2MzcxNzUsImp0aSI6Ijk4MjQyNzc2OWQ3NjRjODY4N2RiN2IxYzRmYjg3MzhmIiwidXNlcl9pZCI6MX0.acB0HWxdI_3fAF8H5d8ypxR6U4PiFmCHe5FVpRcVHGk",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxOTU3NjI4LCJpYXQiOjE2NjE5NTczMjgsImp0aSI6Ijk4YTFiMTYxYmRhMDQxNDQ5MjdhMzkxZDlmZDQ0MmM2IiwidXNlcl9pZCI6MX0.Hm9mtW86c0MPcQRnIRz18rs6j2E8bdKRDy-GowCaJYE",
           Accept: "application/json",
         },
       }
     );
     let data = res.data;
     console.log(data);
-    if(res.status===200){
-      console.log("Succesfully Submitted")
+    if (res.status === 200) {
+      console.log("Succesfully Submitted");
     }
   };
 
@@ -160,6 +159,38 @@ export default class Documents extends React.Component {
       errors.estimationLetter = "You have not selected any File";
     return errors;
   }
+  click=(e)=>{
+    e.preventDefault()
+    this.validateButton()
+  }
+  validateButton() {
+    if (
+      this.state.medicalBill === "" ||
+      this.state.estimationLetter === "" ||
+      this.state.medicalReports === ""
+    ) {
+      document.getElementById("saveAndContinue").disabled = true;
+      setTimeout(function () {
+        document.getElementById("saveAndContinue").disabled = false;
+      }, 1000);
+      console.log("Button disabled");
+      if (
+        this.state.medicalBill === "" ||
+        this.state.estimationLetter === "" ||
+        this.state.medicalReports === ""
+      ) {
+        alert(
+          "Sorry Sir/Mam, but you cannot proceed further. Please fill all the required details in the form."
+        );
+      }
+    } else {
+      document.getElementById("saveAndContinue").disabled = false;
+      alert(
+        "Make Sure there is green tick against every field or else it can lead to rejection of your form at the end"
+      );
+      this.onFileUpload()
+    }
+  }
   render() {
     const errors = this.validate(
       this.state.medicalBill,
@@ -197,7 +228,7 @@ export default class Documents extends React.Component {
           +
         </button> */}
 
-        <Form onSubmit={this.onFileUpload}>
+        <Form >
           <Input
             type="file"
             // style={{ display: "none" }}
@@ -241,18 +272,11 @@ export default class Documents extends React.Component {
             {errors.medicalReports}
           </FormFeedback>
           <div className="saveAC">
-            <button type="submit" className="Save">
+            <button type="submit" onClick={this.click} id="saveAndContinue" className="Save">
               Submit
             </button>
           </div>
         </Form>
-
-        {/* <button>
-          <img src={pic5} alt="sphere" className="edit" />
-        </button> */}
-        {/* <button>
-          <img src={pic6} alt="sphere" className="Delete" />
-        </button> */}
 
         <div className="recSkip">
           <button onClick={this.clickBack} className="skip">

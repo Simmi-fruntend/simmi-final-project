@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import  '../../CSS/Navbar.css'
+import  '/Users/mudit/Documents/Vs Code React/intern/src/CSS/Navbar.css'
 import pic from '../../Assets/Ellipse5.png'
 import pic1 from '../../Assets/Line.png'
 import {Link} from 'react-router-dom'

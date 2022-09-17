@@ -35,7 +35,7 @@ export default class start_fund extends Component {
         </h4>
         <h3 className="individuals2">For Nonprofits (NGO)</h3>
         <Link to='/individual-funds'><img src={module2} alt="" className="arrow" /></Link>
-        <Link to='/step1'><img src={module2} alt="" className="arrow2" /></Link>
+        <Link to='/nonprofits'><img src={module2} alt="" className="arrow2" /></Link>
       </>
     );
   }

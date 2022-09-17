@@ -1,7 +1,7 @@
 import React from "react";
 const MedicalItem =(props)=> {
     
-    let { fundraiser_title, fundraiser_description ,cover_photo,current_amount_raised,end_date} = props;
+    let { fundraiser_title, fundraiser_description ,cover_photo,current_amount_raised,end_date,donate} = props;
     return (
         <div className="my-3">
         <div className="card" >
@@ -16,7 +16,7 @@ const MedicalItem =(props)=> {
                 Generated on: {end_date}
             </h4>
             <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target='_blank' rel="noreferrer"><button className=" card-button">Share</button></a>
-            <button className="card-button">Donate</button>
+            <button className="card-button" onClick={donate}>Donate</button>
           
           </div>
         </div>

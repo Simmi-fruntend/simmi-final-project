@@ -45,19 +45,36 @@ export default class Fund extends Component {
   };
   clickContinue = (e) => {
     e.preventDefault();
-    this.changeColor4();
-    this.continue();
+    this.validateButton()
   };
   uploadFiles() {
     document.getElementById("coverPhoto").click();
-    console.log("fisr function called");
+    console.log("first function called");
   }
-  // handleFileChange = (event) => {
-  //   // Update the state
-  //   this.setState({
-  //     coverPhoto: event.target.files[0],
-  //   });
-  // };
+  validateButton() {
+    if (this.props.values.coverPhoto === null ||
+      this.props.values.fundraiserName === "" ||
+      this.props.values.story===""){
+      
+      document.getElementById("saveAndContinue").disabled = true;
+      setTimeout(function(){
+        document.getElementById("saveAndContinue").disabled = false;
+      },1000)
+      console.log("Button disabled")
+      if(this.props.values.coverPhoto === null ||
+      this.props.values.fundraiserName === "" ||
+      this.props.values.story===""){
+        alert("Sorry Sir/Mam, but you cannot proceed further. Please fill all the required details in the form.")
+      } 
+    }
+    else {
+      document.getElementById("saveAndContinue").disabled = false;
+      alert("Make Sure there is green tick against every field or else it can lead to rejection of your form at the end")
+      this.changeColor4();
+      this.continue();
+
+    }
+  }
 
   render() {
     const { handleInputChange,handleFileChange } = this.props;
@@ -121,7 +138,7 @@ export default class Fund extends Component {
           </button>
         </div>
         <div className="scRectangle3">
-          <button onClick={this.clickContinue} className="SC3">
+          <button onClick={this.clickContinue} id='saveAndContinue' className="SC3">
             Raise Your Fund
           </button>
         </div>
