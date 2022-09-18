@@ -46,6 +46,134 @@ const Introduction = () => {
       });
   }, []);
 
+  const loadScript=(src)=> {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+  const displayRazorpay=async(e) =>{
+    e.preventDefault()
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+
+    // const result = await axios.post("http://localhost:3000/payment/orders");
+    
+    // if (!result) {
+      //   alert("Server error. Are you online?");
+      //   return;
+      // }
+    // creating a new donation
+    //appending form data from here
+    const formData = new FormData();
+    // formData.append("name", this.state.popupName);
+    // formData.append("email", this.state.popupEmail);
+    // formData.append("amount", this.state.amount);
+    // formData.append("anonymously", this.state.popupDonate);
+    // formData.append("anonymously","True");
+    // // formData.append("indian", this.state.popupIndian);
+    // formData.append("indian", 'True');
+    // formData.append("country_code", this.state.popupCountry);
+    // formData.append("currency", this.state.choosecurrency);
+    // formData.append("tip", this.state.tipamount);
+    // formData.append("phone_number", this.state.popupPhone);
+    formData.append("name", "Mudit Kapoor");
+    formData.append("email", "muditk441@gmail.com");
+    formData.append("amount", 5000);
+    formData.append("anonymously",'True');
+    // formData.append("indian", this.state.popupIndian);
+    formData.append("indian", 'True');
+    formData.append("country_code", 91);
+    formData.append("currency", 'INR');
+    formData.append("tip", 2000);
+    formData.append("phone_number", 8791615052);
+    let result = await axios.post(
+      "http://127.0.0.1:8000/api/razorpay_order",
+      // "https://httpbin.org/post",
+      formData,
+      {
+        headers: {
+          // Authorization:
+          //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NTQ2NjQ5LCJpYXQiOjE2NTk1NDYzNDksImp0aSI6ImIzZDA5OGE3MWU0ZDQxZjk4MDc5MTYyNDdkYWM2MWI5IiwidXNlcl9pZCI6MX0.GSiis1kWlHuxGoUMmo6ZHCdQO8uhhqAVemViqDlEiS4",
+          Accept: "application/json",
+        },
+      }
+    );
+    let data = result.data;
+    console.log(data);
+
+
+    
+    
+
+
+    const order_id = data.orderId;
+    console.log(order_id)
+      //static order id now 
+    const options = {
+      key_id: 'rzp_test_p7QukLMtggo6LE', // Enter the Key ID generated from the Dashboard
+      // key_id: process.env.REACT_APP_RAZORPAY_SECRET, // Enter the Key ID generated from the Dashboard
+      // key_secret:process.env.REACT_APP_RAZORPAY_KEY_ID,
+      key_secret:'kaME4MgYqXHYFT7ustAX5t2W',
+      amount: 5000,
+      currency: "INR",
+      name: 'Mudit Kapoor',
+      description: "Test Transaction",
+      // image: { logo },
+      order_id: order_id,
+      // order_id: 'order_K0R4qsZiAuyHiJ',
+      handler: async function (response) {
+        const data = {
+          // razorpay_order_id: order_id,
+          // order_id: 'order_K0R4qsZiAuyHiJ',
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_signature: response.razorpay_signature,
+        };
+
+        const result = await axios.post(
+          // "http://api/razorpay.com/v1/orders",
+          "http://127.0.0.1:8000/api/razorpay_callback",
+          // "https://httpbin.org/post",
+          data
+        );
+
+        alert(result.data.status);
+      },
+      prefill: {
+        // name: this.state.popupName,
+        // email: this.state.popupEmail,
+        // contact: this.state.popupPhone,
+        name: "Mudit Kapoor",
+        email: "muditk441@gmail.com",
+        contact: 8719615052,
+      },
+      notes: {
+        address: "Soumya Dey Corporate Office",
+      },
+      theme: {
+        color: "#61dafb",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  }
+
   return (
     <div className={classes.introduction}>
       <Typography variant="h3" component="h1">
@@ -56,7 +184,7 @@ const Introduction = () => {
         the world by addressing basic, but neglected issues of poor.
       </Typography>
       <div className={classes.donateNow}>
-        <Button>Donate Now</Button>
+        <Button onClick={displayRazorpay}>Donate Now</Button>
       </div>
 
       {/* Carousal */}
