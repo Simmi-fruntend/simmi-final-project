@@ -127,44 +127,9 @@ export default class Others1 extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.validateButton()
+    this.nextStep();
+    this.changeColor1();
   };
-  validateButton() {
-    if (   this.state.name===""||
-    this.state.phone===""||
-    this.state.email===""||
-    this.state.address===""||
-    this.state.addressS===""||
-    this.state.city===""||
-    this.state.state===""||
-    this.state.zip===""||
-    this.state.tax==="") {
-      
-      document.getElementById("saveAndContinue").disabled = true;
-      setTimeout(function(){
-        document.getElementById("saveAndContinue").disabled = false;
-      },1000)
-      console.log("Button disabled")
-      if(   this.state.name===""||
-        this.state.phone===""||
-        this.state.email===""||
-        this.state.address===""||
-        this.state.addressS===""||
-        this.state.city===""||
-        this.state.state===""||
-        this.state.zip===""||
-        this.state.tax===""){
-        alert("Sorry Sir/Mam, but you cannot proceed further. Please fill all the required details in the form.")
-      } 
-    }
-    else {
-      document.getElementById("saveAndContinue").disabled = false;
-      alert("Make Sure there is green tick against every field or else it can lead to rejection of your form at the end")
-      this.nextStep();
-      this.changeColor1();
-
-    }
-  }
 
   render() {
     const errors = this.validate(
@@ -360,7 +325,7 @@ export default class Others1 extends Component {
                 </FormFeedback>
                 <div className="othersbox"></div>
                 {/* <Link to='/others-beneficiary'> */}
-                <button className="otherssave" id="saveAndContinue" type="submit">
+                <button className="otherssave" type="submit">
                   Save and Continue
                 </button>
                 <Input

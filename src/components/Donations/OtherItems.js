@@ -2,7 +2,7 @@ import React from "react";
 
 const OtherItem =(props)=> {
     
-    let { title_of_campaign, beneficiary_story ,beneficiary_photo,target_amount,end_date,donate} = props;
+    let { title_of_campaign, beneficiary_story ,beneficiary_photo,target_amount,end_date} = props;
     return (
         <div className="my-3">
         <div className="card" >
@@ -17,7 +17,7 @@ const OtherItem =(props)=> {
                 Generated on: {end_date}
             </h4>
             <button className=" card-button">Share</button>
-            <button className="card-button" onClick={donate}>Donate</button>
+            <button className="card-button">Donate</button>
           
           </div>
         </div>

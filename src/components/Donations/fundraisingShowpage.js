@@ -8,10 +8,7 @@ import Touch from "./Pictures/Touch.png";
 import axios from "axios";
 import MedicalItem from "./Medicalitems";
 import OtherItem from "./OtherItems";
-import { Form, Input, Label } from "reactstrap";
-import FormData from "form-data";
 
-// https://blog.learncodeonline.in/how-to-integrate-razorpay-payment-gateway-with-django-rest-framework-and-reactjs
 
 export default class fundraisingShowpage extends Component {
   constructor(props) {
@@ -22,48 +19,13 @@ export default class fundraisingShowpage extends Component {
       isOthersClicked: false,
       dataMedical: [],
       dataOthers: [],
-      choosecurrency: "",
-      amount: 0,
-      tipamount: 0,
-      popupName: "",
-      popupCountry: "",
-      popupPhone: "",
-      popupEmail: "",
-      popupIndian: false,
-      popupDonate: false,
-      touched: {
-        choosecurrency: false,
-        amount: false,
-        tipamount: false,
-        popupName: false,
-        popupCountry: false,
-        popupPhone: false,
-        popupEmail: false,
-        popupIndian: false,
-        popupDonate: false,
-      },
     };
     this.togglePopup = this.togglePopup.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
   }
   togglePopup() {
     console.log("State has been changed");
     this.setState({ isPopupOpen: !this.state.isPopupOpen });
   }
-  handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
-  };
-  handleBlur = (field) => (evt) => {
-    this.setState({
-      touched: { ...this.state.touched, [field]: true },
-    });
-  };
 
   changeColor1() {
     document.getElementById("1").style.backgroundColor = "#FFAB40";
@@ -98,7 +60,7 @@ export default class fundraisingShowpage extends Component {
       {
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyMDQyNDc5LCJpYXQiOjE2NjIwNDIxNzksImp0aSI6IjJjYTdlYjg3ZWFlMDRlZDc4NWU4MWRlMmU5OGM4MDY1IiwidXNlcl9pZCI6MX0.B4E8YpZLHFDWTlpYqf-vCN8kxtc2j8Z_cg5-eI0RgK0",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4OTMzMDcyLCJpYXQiOjE2NTg5MzI3NzIsImp0aSI6ImQ4ODE5NjQ1OTQ2MjRhY2RiZTE1NDdlNzY4MmMxODZkIiwidXNlcl9pZCI6MX0.cNV41PeMexkX2gTtZxHtofpVYWxKd_FrD-wFOqteqRs",
         },
       }
     );
@@ -116,7 +78,7 @@ export default class fundraisingShowpage extends Component {
     let res = await axios.get("http://127.0.0.1:8000/api/fundraiser_others/", {
       headers: {
         Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYyMDQyNDc5LCJpYXQiOjE2NjIwNDIxNzksImp0aSI6IjJjYTdlYjg3ZWFlMDRlZDc4NWU4MWRlMmU5OGM4MDY1IiwidXNlcl9pZCI6MX0.B4E8YpZLHFDWTlpYqf-vCN8kxtc2j8Z_cg5-eI0RgK0",
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4OTMzMDcyLCJpYXQiOjE2NTg5MzI3NzIsImp0aSI6ImQ4ODE5NjQ1OTQ2MjRhY2RiZTE1NDdlNzY4MmMxODZkIiwidXNlcl9pZCI6MX0.cNV41PeMexkX2gTtZxHtofpVYWxKd_FrD-wFOqteqRs",
       },
     });
     console.log(res.data.payload);
@@ -128,6 +90,7 @@ export default class fundraisingShowpage extends Component {
     });
   };
 
+
   changePicture() {
     this.setState({
       imageTwo: !this.state.imageTwo,
@@ -135,127 +98,14 @@ export default class fundraisingShowpage extends Component {
     });
   }
 
-  
-  loadScript(src) {
-      return new Promise((resolve) => {
-        const script = document.createElement("script");
-        script.src = src;
-        script.onload = () => {
-          resolve(true);
-        };
-        script.onerror = () => {
-          resolve(false);
-        };
-        document.body.appendChild(script);
-      });
-    }
-    displayRazorpay=async(e) =>{
-      e.preventDefault()
-      const res = await this.loadScript(
-        "https://checkout.razorpay.com/v1/checkout.js"
-      );
-      
-      if (!res) {
-        alert("Razorpay SDK failed to load. Are you online?");
-        return;
-      }
-
-
-      // const result = await axios.post("http://localhost:3000/payment/orders");
-      
-      // if (!result) {
-        //   alert("Server error. Are you online?");
-        //   return;
-        // }
-      // creating a new donation
-      //appending form data from here
-      const formData = new FormData();
-      formData.append("name", this.state.popupName);
-      formData.append("email", this.state.popupEmail);
-      formData.append("amount", this.state.amount);
-      formData.append("anonymously", this.state.popupDonate);
-      formData.append("anonymously","True");
-      // formData.append("indian", this.state.popupIndian);
-      formData.append("indian", 'True');
-      formData.append("country_code", this.state.popupCountry);
-      formData.append("currency", this.state.choosecurrency);
-      formData.append("tip", this.state.tipamount);
-      formData.append("phone_number", this.state.popupPhone);
-      let result = await axios.post(
-        "http://127.0.0.1:8000/api/razorpay_order",
-        // "https://httpbin.org/post",
-        formData,
-        {
-          headers: {
-            // Authorization:
-            //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NTQ2NjQ5LCJpYXQiOjE2NTk1NDYzNDksImp0aSI6ImIzZDA5OGE3MWU0ZDQxZjk4MDc5MTYyNDdkYWM2MWI5IiwidXNlcl9pZCI6MX0.GSiis1kWlHuxGoUMmo6ZHCdQO8uhhqAVemViqDlEiS4",
-            Accept: "application/json",
-          },
-        }
-      );
-      let data = result.data;
-      console.log(data);
-
-
-      
-      
-
-
-      const order_id = data.orderId;
-      console.log(order_id)
-        //static order id now 
-      const options = {
-        key_id: 'rzp_test_p7QukLMtggo6LE', // Enter the Key ID generated from the Dashboard
-        // key_id: process.env.REACT_APP_RAZORPAY_SECRET, // Enter the Key ID generated from the Dashboard
-        // key_secret:process.env.REACT_APP_RAZORPAY_KEY_ID,
-        key_secret:'kaME4MgYqXHYFT7ustAX5t2W',
-        amount: this.state.amount,
-        currency: "INR",
-        name: this.state.popupName,
-        description: "Test Transaction",
-        // image: { logo },
-        order_id: order_id,
-        // order_id: 'order_K0R4qsZiAuyHiJ',
-        handler: async function (response) {
-          const data = {
-            // razorpay_order_id: order_id,
-            // order_id: 'order_K0R4qsZiAuyHiJ',
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_signature: response.razorpay_signature,
-          };
-
-          const result = await axios.post(
-            // "http://api/razorpay.com/v1/orders",
-            "http://127.0.0.1:8000/api/razorpay_callback",
-            // "https://httpbin.org/post",
-            data
-          );
-
-          alert(result.data.status);
-        },
-        prefill: {
-          name: this.state.popupName,
-          email: this.state.popupEmail,
-          contact: this.state.popupPhone,
-        },
-        notes: {
-          address: "Soumya Dey Corporate Office",
-        },
-        theme: {
-          color: "#61dafb",
-        },
-      };
-
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-    }
-  
-
   render() {
+  
+
     return (
       <>
-        {/* Side Images Dynamic Rendering*/}
+
+      {/* Side Images Dynamic Rendering*/}
+
 
         {/* Side images static*/}
         <div className="Rectangle10"></div>
@@ -265,6 +115,9 @@ export default class fundraisingShowpage extends Component {
         <div className="Rectangle8"></div>
         <div className="Rectangle9"></div>
 
+
+
+        
         {/* <button className="caretLeft" onClick={this.changePicture}>
           {" "}
           &lt;
@@ -362,143 +215,115 @@ export default class fundraisingShowpage extends Component {
           <h1 className="secureDonation">Make a secure Donation:</h1>
           <div className="rectangle2721"></div>
           <h3 className="currency">Currency :</h3>
-          <Form action="post">
-            <select
-              name="choosecurrency"
-              id="choosecurrency"
-              className="choosecurrency"
-              onBlur={this.handleBlur("choosecurrency")}
-              required
-              onChange={this.handleInputChange}
-            >
-              <option selected disabled="disabled">
-                Choose Currency
-              </option>
-              <option value="INR">Rupees</option>
-              <option value="Dollar">Dollar</option>
-              <option value="Pounds">Pounds</option>
-            </select>
-            <Label htmlFor="amount" className="Amount">
-              Amount :
-            </Label>
-            <Input
-              type="number"
-              className="amountInput"
-              placeholder="Enter amount"
-              name="amount"
-              id="amount"
-              onBlur={this.handleBlur("amount")}
-              onChange={this.handleInputChange}
-              required
-            />
+          <select
+            name="choosecurrency"
+            id="choosecurrency"
+            className="choosecurrency"
+          >
+            <option selected disabled="disabled">
+              Choose Currency
+            </option>
+            <option value="1">Rupees</option>
+            <option value="2">Dollar</option>
+            <option value="3">Pounds</option>
+          </select>
+          <label htmlFor="amount" className="Amount">
+            Amount :
+          </label>
+          <input
+            type="number"
+            className="amountInput"
+            placeholder="Enter amount"
+            name="amount"
+            id="amount"
+          />
 
-            <div className="rectangle2722"></div>
-            <h4 className="infoPopup">
-              SIMMI charges NO fees. We rely on donors like you to cover for our
-              expenses. Kindly consider a tip. Thank you 🙏
-            </h4>
-            <h4 className="includeTip">Include a tip of:</h4>
+          <div className="rectangle2722"></div>
+          <h4 className="infoPopup">
+            SIMMI charges NO fees. We rely on donors like you to cover for our
+            expenses. Kindly consider a tip. Thank you 🙏
+          </h4>
+          <h4 className="includeTip">Include a tip of:</h4>
 
-            <Label htmlFor="tipamount" className="tipAmount">
+          <form action="post">
+            <label htmlFor="tipamount" className="tipAmount">
               Amount :
-            </Label>
-            <Input
+            </label>
+            <input
               type="number"
               className="tipamountInput"
               placeholder="Enter Tip"
               name="tipamount"
-              id="tipamount"
-              onBlur={this.handleBlur("tipamount")}
-              onChange={this.handleInputChange}
-              required
+              id="amount"
             />
-            <Label htmlFor="name" className="popupname">
+            <label htmlFor="name" className="popupname">
               Name:{" "}
-            </Label>
-            <Input
+            </label>
+            <input
               type="text"
               name="popupName"
               id="popupName"
               className="popupName"
-              onBlur={this.handleBlur("popupName")}
-              onChange={this.handleInputChange}
-              required
             />
 
-            <Label htmlFor="popupCountry" className="popupcountry">
+            <label htmlFor="popupCountry" className="popupcountry">
               Country Code:
-            </Label>
-            <Input
+            </label>
+            <input
               type="number"
               name="popupCountry"
               id="popupCountry"
               className="popupCountry"
-              onBlur={this.handleBlur("popupCountry")}
-              onChange={this.handleInputChange}
-              required
             />
 
-            <Label htmlFor="popupPhone" className="popupphone">
+            <label htmlFor="popupPhone" className="popupphone">
               Phone Number:
-            </Label>
-            <Input
+            </label>
+            <input
               type="number"
               name="popupPhone"
               id="popupPhone"
-              onBlur={this.handleBlur("popupPhone")}
-              onChange={this.handleInputChange}
               className="popupPhone"
-              required
             />
 
-            <Label htmlFor="popupEmail" className="popupemail">
+            <label htmlFor="popupEmail" className="popupemail">
               {" "}
               Email :
-            </Label>
-            <Input
+            </label>
+            <input
               type="email"
               name="popupEmail"
               id="popupEmail"
-              onChange={this.handleInputChange}
-              onBlur={this.handleBlur("popupEmail")}
               className="popupEmail"
-              required
             />
 
-            <Label htmlFor="popupIndian" className="popupindian">
+            <label htmlFor="popupIndian" className="popupindian">
               {" "}
               Are you an Indian Citizen ?
-            </Label>
-            <Input
+            </label>
+            <input
               type="checkbox"
               name="popupIndian"
               id="popupIndian"
-              onBlur={this.handleBlur("popupIndian")}
-              onChange={this.handleInputChange}
               className="popupIndian"
-              required
             />
 
-            <Label htmlFor="popupDonate" className="popupdonate">
+            <label htmlFor="popupDonate" className="popupdonate">
               Donate anonymously?
-            </Label>
-            <Input
+            </label>
+            <input
               type="checkbox"
               name="popupDonate"
               id="popupDonate"
-              onBlur={this.handleBlur("popupDonate")}
-              onChange={this.handleInputChange}
               className="popupDonate"
-              required
             />
 
-            <button type="submit" className="popupSubmit" onClick={this.displayRazorpay}>
+            <button type="submit" className="popupSubmit">
               Proceed to Donate
             </button>
-          </Form>
+          </form>
         </Popup>
         {/* Popup code ends here */}
-
         <button className="medicalCategory" id="1" onClick={this.medicalCards}>
           Medical
         </button>
@@ -537,7 +362,6 @@ export default class fundraisingShowpage extends Component {
                       cover_photo={element.cover_photo}
                       current_amount_raised={element.current_amount_raised}
                       end_date={element.end_date}
-                      donate={this.displayRazorpay}
                     />
                   </div>
                 );
@@ -565,7 +389,6 @@ export default class fundraisingShowpage extends Component {
                       beneficiary_photo={element.beneficiary_photo}
                       target_amount={element.target_amount}
                       end_date={element.end_date}
-                      donate={this.displayRazorpay}
                     />
                   </div>
                 );

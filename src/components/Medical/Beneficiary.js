@@ -38,6 +38,7 @@ class Beneficiary extends Component {
         phoneNumber: false,
         email: false,
         cameraFile: false,
+        targetAmount:false
       },
       
     };
@@ -103,7 +104,7 @@ class Beneficiary extends Component {
       touched: { ...this.state.touched, [field]: true },
     });
   };
-  validate(name, age, relation, phoneNumber, email,cameraFile) {
+  validate(name, age, relation, phoneNumber, email, cameraFile,targetAmount) {
     const errors = {
       name: "",
       age: "",
@@ -111,10 +112,12 @@ class Beneficiary extends Component {
       phoneNumber: "",
       email: "",
       cameraFile: "",
-   
+      targetAmount:""
     };
 
-
+    if (this.state.touched.targetAmount === true && !targetAmount) {
+      errors.targetAmount = " Required";
+    }
 
     if (this.state.touched.relation === true && !relation) {
       errors.relation = " Required";
@@ -144,8 +147,6 @@ class Beneficiary extends Component {
     if (this.state.touched.email === true && !reg1.test(email)) {
       errors.email = "Email should be like- example@email.com";
     }
-
-
     return errors;
   }
 
@@ -171,9 +172,9 @@ class Beneficiary extends Component {
       this.state.email === ""||
       this.state.cameraFile===null){
         alert("Sorry Sir/Mam, but you cannot proceed further. Please fill all the required details in the form.")
-      } 
-    }
-    else {
+      }
+      
+    } else {
       document.getElementById("saveAndContinue").disabled = false;
       alert("Make Sure there is green tick against every field or else it can lead to rejection of your form at the end")
       this.nextStep();
@@ -190,6 +191,7 @@ class Beneficiary extends Component {
       this.state.phoneNumber,
       this.state.email,
       this.state.cameraFile,
+      this.state.targetAmount
     );
     const {
       cameraFile,
@@ -213,7 +215,6 @@ class Beneficiary extends Component {
       hospitalNumber,
       fundraiserName,
       story,
-
     } = this.state;
     const values = {
       cameraFile,
@@ -383,6 +384,7 @@ class Beneficiary extends Component {
               handleInputChange={this.handleInputChange}
               values={values}
               prevStep={this.prevStep}
+              handleBlur={this.handleBlur}
               validate={this.validate}
             />
           </>

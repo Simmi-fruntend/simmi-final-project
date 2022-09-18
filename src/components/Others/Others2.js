@@ -80,7 +80,7 @@ export default class Others2 extends Component {
   // }
   // On file upload (click the upload button)
   onFileUpload = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // Create an object of formData
     const formData = new FormData();
     // Update the formData object
@@ -120,7 +120,7 @@ export default class Others2 extends Component {
       {
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxOTU3MzU0LCJpYXQiOjE2NjE5NTcwNTQsImp0aSI6ImRkM2M5NDk2YTgyMTQwMDU4YzllYzVmYmM2NjU0ZjE4IiwidXNlcl9pZCI6MX0.Mb4Z7YmtPFU9DCA0A9F8El_o8rpdil-ezwHRWZ2HLMw",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NTU3OTQwLCJpYXQiOjE2NTc1NTYxNDAsImp0aSI6ImZjMDE1NjJjZWFiMDRkNTQ5NGVkNGJkYzk5ZmNkNTU2IiwidXNlcl9pZCI6MX0.jMuqKsMIRBJ74hPCFV6fQVjN-meU8lHp6_D1k2hg5YU",
           Accept: "application/json",
         },
       }
@@ -265,66 +265,6 @@ export default class Others2 extends Component {
 
     return errors;
   }
-  click = (e) => {
-    e.preventDefault();
-    this.validateButton();
-  };
-  validateButton(e) {
-    if (
-      this.state.beneficiaryPhoto === null||
-      this.state.documentFile === null ||
-      this.state.videoFile === null ||
-      this.state.beneficiaryName === "" ||
-      this.state.raisingFundsFor === "" ||
-      this.state.beneficiaryPhone === "" ||
-      this.state.beneficiaryAge === "" ||
-      this.state.beneficiaryAddress === "" ||
-      this.state.beneficiarySex===""||
-      this.state.beneficiaryAddressS === "" ||
-      this.state.beneficiaryCity === "" ||
-      this.state.beneficiaryState === "" ||
-      this.state.beneficiaryZip === "" ||
-      this.state.titleCompaign === "" ||
-      this.state.beneficiaryStory === "" ||
-      this.state.targetedValue === "" ||
-      this.state.fundEndDate === ""
-    ) {
-      document.getElementById("submitButton").disabled = true;
-      setTimeout(function () {
-        document.getElementById("submitButton").disabled = false;
-      }, 1000);
-      console.log("Button disabled");
-      if (
-        this.state.beneficiaryPhoto === null ||
-        this.state.documentFile === null ||
-        this.state.videoFile === null ||
-        this.state.beneficiaryName === "" ||
-        this.state.raisingFundsFor === "" ||
-        this.state.beneficiaryPhone === "" ||
-        this.state.beneficiaryAge === "" ||
-        this.state.beneficiarySex===""||
-        this.state.beneficiaryAddress === "" ||
-        this.state.beneficiaryAddressS === "" ||
-        this.state.beneficiaryCity === "" ||
-        this.state.beneficiaryState === "" ||
-        this.state.beneficiaryZip === "" ||
-        this.state.titleCompaign === "" ||
-        this.state.beneficiaryStory === "" ||
-        this.state.targetedValue === "" ||
-        this.state.fundEndDate === ""
-      ) {
-        alert(
-          "Sorry Sir/Mam, but you cannot proceed further. Please fill all the required details in the form."
-        );
-      }
-    } else {
-      document.getElementById("submitButton").disabled = false;
-      alert(
-        "Make Sure there is green tick against every field or else it can lead to rejection of your form at the end"
-      );
-      this.onFileUpload()
-    }
-  }
   render() {
     const errors = this.validate(
       this.state.beneficiaryPhoto,
@@ -345,6 +285,7 @@ export default class Others2 extends Component {
       this.state.fundEndDate
     );
     // const { register } = this.props;
+  
 
     return (
       <>
@@ -359,7 +300,7 @@ export default class Others2 extends Component {
           <h3 className="raise6">Beneficiary Address: </h3>
           <h3 className="raise7">Title of the Compaign: </h3>
           <h3 className="raise8">Beneficiary Story</h3>
-          <Form  method="post">
+          <Form onSubmit={this.onFileUpload} method="post">
             <Input
               type="text"
               name="raisingFundsFor"
@@ -604,8 +545,7 @@ export default class Others2 extends Component {
             <div className="submitbox">
               <button
                 type="submit"
-                id='submitButton'
-                onClick={this.click}
+                onClick={this.onFileUpload}
                 className="submitButton"
               >
                 Submit
