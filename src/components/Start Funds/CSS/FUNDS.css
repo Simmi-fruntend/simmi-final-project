@@ -3,7 +3,7 @@ position: absolute;
 width: 1539px;
 height: 360.51px;
 left: -1px;
-top: 125px;
+top: 10px;
 
 background: linear-gradient(180deg, rgba(50, 48, 44, 0.12) 84.51%);
 }
@@ -42,8 +42,8 @@ color: rgba(0, 0, 0, 0.7);
     position: absolute;
 width: 428px;
 height: 61px;
-left: 519px;
-top: 182px;
+left: 500px;
+top: 50px;
 
 font-family: 'Inter';
 font-style: normal;
@@ -58,15 +58,15 @@ color: #000000;
 }
 .headerSub{
     position: absolute;
-width: 517px;
-height: 30px;
-left: 474px;
-top: 261px;
+/* width: 517px;
+height: 30px; */
+left: 300px;
+top: 140px;
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
-font-size: 25px;
+font-size: 20px;
 line-height: 30px;
 text-align: center;
 
@@ -158,24 +158,21 @@ border-radius: 5px;
 }
 .individuals{
     position: absolute;
-width: 185px;
 height: 39px;
-left: 450px;
+left: 430px;
 top: 438px;
-
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
-font-size: 25px;
+font-size: 20px;
 line-height: 30px;
-
 color: #000000;
+margin-bottom: 10px;
 }
 .individuals2{
     position: absolute;
-width: 254px;
 height: 30px;
-left: 445px;
+left: 425px;
 top: 645px;
 
 font-family: 'Inter';

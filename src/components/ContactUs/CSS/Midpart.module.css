@@ -1,24 +1,29 @@
-.root{
+.root {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.mapdiv{
+
+.mapdiv {
+    position: absolute;
+    top: 70px;
+    left: 10px;
     width: 771px;
-height: 683px;
-/* margin-left: 38px; */
+    height: 683px;
+    /* margin-left: 38px; */
 }
 
-.deatails{
+.deatails {
     display: flex;
     flex-direction: row;
 }
-.addtext{
-    
+
+.addtext {
+
     width: 124px;
     height: 34px;
-   
+
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -27,169 +32,193 @@ height: 683px;
     /* identical to box height */
     margin-left: 55px;
     margin-top: 65px;
-    
-    color: #FF5C00;;
+
+    color: #FF5C00;
+    ;
 }
-.completeAdd{
 
-width: 320px;
-height: 116px;
-
-
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 29px;
-margin-top: 20px;
-margin-left: 55px;
-color: #000000;
-}
-.line{
-
-width: 200px;
-height: 0px;
-
-
-border: 3px solid #000000;
-transform: rotate(-90deg);
-margin-top: 122px;
-}
-.emaillabel{
-
-width: 83px;
-height: 34px;
-
-
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 34px;
-/* identical to box height */
-
-
-color: #FF5C00;
-margin-top: 63px;
-}
-.phonelabel{
-
-width: 96px;
-height: 34px;
-
-
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 34px;
-/* identical to box height */
-
-
-color: #FF5C00;
-margin-top: 15px;
-}
-.phonenumber{
+.completeAdd {
+    position: absolute;
+    left: 0px;
+    top: 750px;
+    width: 320px;
+    height: 116px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
     margin-top: 20px;
+    margin-left: 55px;
+    color: #000000;
 }
-.rowchild2{
+
+.line {
+
+    width: 180px;
+    height: 0px;
+    position: absolute;
+    left: 280px;
+    top: 715px;
+    border: 3px solid #000000;
+    transform: rotate(-90deg);
+    margin-top: 122px;
+}
+
+.emaillabel {
+
+    width: 83px;
+    height: 34px;
+    position: absolute;
+    left: 400px;
+    top: 700px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+    color: #FF5C00;
+    margin-top: 63px;
+}
+
+.phonelabel {
+
+    width: 96px;
+    height: 34px;
+    position: absolute;
+    left: 400px;
+    top: 830px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+
+
+    color: #FF5C00;
+    margin-top: 15px;
+}
+
+.email {
+    position: absolute;
+    left: 400px;
+    top: 790px;
+}
+
+.phonenumber {
+    margin-top: 20px;
+    position: absolute;
+    left: 400px;
+    top: 870px;
+}
+
+.rowchild2 {
     margin-left: 51px;
 }
-.heading{
 
-width: 246px;
-height: 48px;
+.heading {
+
+    width: 246px;
+    height: 48px;
 
 
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
 
-color: #FF8C21;
+    color: #FF8C21;
 }
-.question{
 
-width: 419px;
-height: 68px;
+.question {
+
+    width: 419px;
+    height: 68px;
 
 
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 28px;
-line-height: 34px;
-margin-top: 17px;
-color: #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 17px;
+    color: #000000;
 }
-.form form label{
-    
-width: 86px;
-height: 34px;
+
+.form form label {
+
+    width: 86px;
+    height: 34px;
 
 
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 28px;
-line-height: 34px;
-margin-top: 17px;
-/* identical to box height */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 17px;
+    /* identical to box height */
 
 
-color: #000000;
+    color: #000000;
 }
-.form form input{
+
+.form form input {
     box-sizing: border-box;
 
 
-width: 520px;
-height: 60px;
-
-
-background: #FFFFFF;
-border: 1px solid #000000;
-border-radius: 5px;
-}
-.form form textarea{
-    box-sizing: border-box;
-
-  
     width: 520px;
-    height: 240px;
-   
-    
+    height: 60px;
+
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
 }
-.form form button{
+
+.form form textarea {
     box-sizing: border-box;
 
 
-width: 250px;
-height: 60px;
+    width: 520px;
+    height: 240px;
 
 
-background: #FF5C00;
-border: 3px solid #FF5C00;
-border-radius: 20px;
-margin-top: 47px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
 }
-.form form button span{
 
-width: 172px;
-height: 34px;
-
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 34px;
-/* identical to box height */
+.form form button {
+    box-sizing: border-box;
 
 
-color: #FFFFFF;
+    width: 250px;
+    height: 60px;
+
+
+    background: #FF5C00;
+    border: 3px solid #FF5C00;
+    border-radius: 20px;
+    margin-top: 47px;
+}
+
+.form form button span {
+
+    width: 172px;
+    height: 34px;
+
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
 }
