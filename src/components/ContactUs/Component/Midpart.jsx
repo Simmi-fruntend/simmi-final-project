@@ -8,9 +8,9 @@ const Midpart = () => {
         <div className={classes.mapdiv}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.4636230720853!2d77.02044651409155!3d28.46558119837035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1976b7add03d%3A0xe204cc63fd60eccf!2sSIMMI%20FOUNDATION!5e0!3m2!1sen!2sin!4v1664536898069!5m2!1sen!2sin"
-            width="570"
+            width="500"
             title="map"
-            height="560"
+            height="550"
             style={{ border: "0" }}
             allowfullscreen=""
             loading="lazy"
