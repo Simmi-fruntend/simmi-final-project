@@ -1,11 +1,12 @@
 .root {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .mapdiv {
+<<<<<<< HEAD
     position: absolute;
     top: 120px;
     left: 10px;
@@ -56,57 +57,98 @@
     margin-top: 20px;
     margin-left: 55px;
     color: #000000;
+=======
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  width: 771px;
+  height: 800px;
+  margin-left: 38px;
+  padding: 100px 10px 10px 20px;
+}
+
+.deatails {
+  display: flex;
+  flex-direction: row;
+}
+
+.addtext {
+  width: 124px;
+  height: 34px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  /* identical to box height */
+  margin-left: 55px;
+  margin-top: 65px;
+  color: #ff5c00;
+}
+
+.completeAdd {
+  position: absolute;
+  left: 0px;
+  top: 750px;
+  width: 320px;
+  height: 116px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 20px;
+  margin-left: 55px;
+  color: #000000;
+>>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
 }
 
 .line {
-
-    width: 180px;
-    height: 0px;
-    position: absolute;
-    left: 280px;
-    top: 715px;
-    border: 3px solid #000000;
-    transform: rotate(-90deg);
-    margin-top: 122px;
+  width: 180px;
+  height: 0px;
+  position: absolute;
+  left: 280px;
+  top: 715px;
+  border: 3px solid #000000;
+  transform: rotate(-90deg);
+  margin-top: 122px;
 }
 
 .emaillabel {
-
-    width: 83px;
-    height: 34px;
-    position: absolute;
-    left: 400px;
-    top: 700px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 34px;
-    /* identical to box height */
-    color: #FF5C00;
-    margin-top: 63px;
+  width: 83px;
+  height: 34px;
+  position: absolute;
+  left: 400px;
+  top: 700px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  /* identical to box height */
+  color: #ff5c00;
+  margin-top: 63px;
 }
 
 .phonelabel {
+  width: 96px;
+  height: 34px;
+  position: absolute;
+  left: 400px;
+  top: 830px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  /* identical to box height */
 
-    width: 96px;
-    height: 34px;
-    position: absolute;
-    left: 400px;
-    top: 830px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 34px;
-    /* identical to box height */
-
-
-    color: #FF5C00;
-    margin-top: 15px;
+  color: #ff5c00;
+  margin-top: 15px;
 }
 
 .email {
+<<<<<<< HEAD
     position: absolute;
     left: 400px;
     top: 790px;
@@ -123,83 +165,87 @@
 
 .rowchild2 {
     margin-left: 390px;
+=======
+  position: absolute;
+  left: 400px;
+  top: 790px;
+}
+
+.phonenumber {
+  margin-top: 20px;
+  position: absolute;
+  left: 400px;
+  top: 870px;
+}
+
+.rowchild2 {
+  margin-left: 51px;
+>>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
 }
 
 .heading {
-
-    width: 246px;
-    height: 48px;
-
-
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 48px;
-
-    color: #FF8C21;
+  width: 246px;
+  height: 48px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #ff8c21;
 }
 
 .question {
+  width: 419px;
+  height: 68px;
 
-    width: 419px;
-    height: 68px;
-
-
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 34px;
-    margin-top: 17px;
-    color: #000000;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  margin-top: 17px;
+  color: #000000;
 }
 
 .form form label {
+  width: 86px;
+  height: 34px;
 
-    width: 86px;
-    height: 34px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  margin-top: 17px;
+  /* identical to box height */
 
-
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 34px;
-    margin-top: 17px;
-    /* identical to box height */
-
-
-    color: #000000;
+  color: #000000;
 }
 
 .form form input {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
+  width: 520px;
+  height: 60px;
 
-    width: 520px;
-    height: 60px;
-
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
 }
 
 .form form textarea {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
+  width: 520px;
+  height: 240px;
 
-    width: 520px;
-    height: 240px;
-
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
 }
 
 .form form button {
+<<<<<<< HEAD
     box-sizing: border-box;
     width: 250px;
     height: 60px;
@@ -209,21 +255,29 @@
     margin-top:60px;
    
 
+=======
+  box-sizing: border-box;
+
+  width: 250px;
+  height: 60px;
+
+  background: #ff5c00;
+  border: 3px solid #ff5c00;
+  border-radius: 20px;
+  margin-top: 47px;
+>>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
 }
 
 .form form button span {
+  width: 172px;
+  height: 34px;
 
-    width: 172px;
-    height: 34px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  /* identical to box height */
 
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 34px;
-    /* identical to box height */
-
-
-    color: #FFFFFF;
+  color: #ffffff;
 }
