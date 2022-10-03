@@ -6,7 +6,7 @@
 }
 
 .mapdiv {
-<<<<<<< HEAD
+
     position: absolute;
     top: 120px;
     left: 10px;
@@ -57,7 +57,7 @@
     margin-top: 20px;
     margin-left: 55px;
     color: #000000;
-=======
+
   position: absolute;
   top: 70px;
   left: 10px;
@@ -100,7 +100,7 @@
   margin-top: 20px;
   margin-left: 55px;
   color: #000000;
->>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
+
 }
 
 .line {
@@ -148,7 +148,7 @@
 }
 
 .email {
-<<<<<<< HEAD
+
     position: absolute;
     left: 400px;
     top: 790px;
@@ -165,7 +165,7 @@
 
 .rowchild2 {
     margin-left: 390px;
-=======
+
   position: absolute;
   left: 400px;
   top: 790px;
@@ -180,7 +180,7 @@
 
 .rowchild2 {
   margin-left: 51px;
->>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
+
 }
 
 .heading {
@@ -245,7 +245,7 @@
 }
 
 .form form button {
-<<<<<<< HEAD
+
     box-sizing: border-box;
     width: 250px;
     height: 60px;
@@ -255,7 +255,7 @@
     margin-top:60px;
    
 
-=======
+
   box-sizing: border-box;
 
   width: 250px;
@@ -265,7 +265,7 @@
   border: 3px solid #ff5c00;
   border-radius: 20px;
   margin-top: 47px;
->>>>>>> be3ad5791cea8581eb038ba8895b98fe86edf6f6
+
 }
 
 .form form button span {
