@@ -2,7 +2,7 @@ import { Avatar, Button, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 // import Cookies from "js-cookie";
 import classes from "./Header.module.scss";
-import logo from "../../assests/logo.png";
+import Fundraiser from "../Donations/Pictures/Fundrasier.png";
 import {
   Dashboard,
   KeyboardArrowRight,
@@ -307,7 +307,7 @@ const Header = (props) => {
     <header className={classes.header_container}>
       <div>
         <Link to="/" className={classes.logo_box}>
-          <img src={logo} alt="SIMMI FOUNDATION" />
+          <img src={Fundraiser} />
         </Link>
       </div>
       <nav>
@@ -323,8 +323,8 @@ const Header = (props) => {
                 </a>
                 <ul className={classes.dropdown}>
                   <li>
-                    <a href="/aboutus">Trending Fundraisers </a>
-                    <hr />
+                    <a href="/trendingfundraiser">Trending Fundraisers </a>
+                    
                   </li>
                   <li>
                     <a href="#mission_vision">NGO</a>

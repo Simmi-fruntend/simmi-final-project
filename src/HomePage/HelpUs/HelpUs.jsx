@@ -39,7 +39,7 @@ const HelpUs = () => {
           return (
             <Grid item key={i} className={classes.helpUs}>
               <div style={{marginTop:"52px"}}>
-                <img src={item.image} alt="..." style={{height:'87px'}} />
+                <img src={item.image} alt="..." style={{height:'67px'}} />
               </div>
               <Typography component="h4" varient="h4">
                 {item.title}

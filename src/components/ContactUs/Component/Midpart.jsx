@@ -35,7 +35,7 @@ const Midpart = () => {
                             Phone:
                         </div>
                         <div className={classes.phonenumber}>
-                            (+91) 70152 - 95025
+                            (+91)7015295025
                         </div>
                     </div>
                 </div>

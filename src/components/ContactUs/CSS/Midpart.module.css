@@ -7,7 +7,7 @@
 
 .mapdiv {
     position: absolute;
-    top: 70px;
+    top: 120px;
     left: 10px;
     width: 771px;
     height: 683px;
@@ -17,10 +17,15 @@
 .deatails {
     display: flex;
     flex-direction: row;
+    position: absolute;
+    top: 50px;
+    left: 0px;
 }
 
 .addtext {
 
+    position: absolute;
+    top: 700px;
     width: 124px;
     height: 34px;
 
@@ -40,7 +45,7 @@
 .completeAdd {
     position: absolute;
     left: 0px;
-    top: 750px;
+    top: 780px;
     width: 320px;
     height: 116px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -105,17 +110,19 @@
     position: absolute;
     left: 400px;
     top: 790px;
+    margin-top:10px;
 }
 
 .phonenumber {
-    margin-top: 20px;
     position: absolute;
     left: 400px;
     top: 870px;
+    margin-top: 10px;
+
 }
 
 .rowchild2 {
-    margin-left: 51px;
+    margin-left: 390px;
 }
 
 .heading {
@@ -194,16 +201,14 @@
 
 .form form button {
     box-sizing: border-box;
-
-
     width: 250px;
     height: 60px;
-
-
     background: #FF5C00;
     border: 3px solid #FF5C00;
     border-radius: 20px;
-    margin-top: 47px;
+    margin-top:60px;
+   
+
 }
 
 .form form button span {

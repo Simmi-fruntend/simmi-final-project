@@ -8,6 +8,7 @@ import donation from "../../../assests/donation.png";
 import withdraw from "../../../assests/withdraw.png";
 import donor from "../../../assests/donor.png";
 
+
 const WhySimmi = () => {
   const tNc = [
     { image: industry, title: "Industry’s best fundraising success rate" },
@@ -16,18 +17,19 @@ const WhySimmi = () => {
     { image: donation, title: "Receive donations via all payment modes" },
     { image: withdraw, title: "Withdraw Funds Without Hassle" },
     { image: donor, title: "Supported By 55,00,000+ Donors" },
+
   ];
   return (
     <>
       {/* Why SIMMI */}
       <Typography component="h3" style={{paddingTop:"30px"}}>
-      <span>WHY SIMMI</span>
+      <span className={classes.active}>ACTIVE FUNDRAISERS</span>
       </Typography>
       <div className={classes.container}>
-      <Typography component = "p">
+      {/* <Typography component = "p">
         Be it for a personal need, social cause or a creative idea - you can count<br />on us for
         the project that you want to raise funds for.
-      </Typography>
+      </Typography> */}
       <Grid container spacing={2} className={classes.whySimmi}>
         <Grid item xs={6} md={8} className={classes.WhySimmi_support} container>
           {tNc.map((item, i) => {
